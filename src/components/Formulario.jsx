@@ -2,25 +2,38 @@ import { useState } from "react"
 
 const Formulario = () => {
     const [nombre, setNombre] = useState("");
-    const [apellido, setApellido] = useState("");
-    const [edad, setEdad] = useState("");
     const [email, setEmail] = useState("");
+    const[pass1,setPass1]=useState("");
+    const[pass2,setPass2]=useState("");
     const [error,setError]=useState(false);
+
+
+
+
+
+
 
     const validarDatos = (e) => {
         //funcion antes de enviar el formulario
         e.preventDefault()
 
         //validacion
-        if (nombre === '' || apellido === '' || edad === "" | email === '') {
+        if (nombre === '' || email === '' || pass1 === "" || pass2 === '') {
             setError(true);
             return;
         }
+
+
+
+
+
+
+
         setError(false);
         setNombre('');
-        setApellido('');
-        setEdad('');
         setEmail('');
+        setPass1('')
+        setPass2('')
 
     };
 
@@ -29,52 +42,46 @@ const Formulario = () => {
         <>
             <form className="formulario" onSubmit={validarDatos}>
                 <div className="form-group">
-                    <label>Nombre</label>
                     <input
                         type="text"
-                        name="nombre"
+                        placeholder="Nombre"
                         className="form-control"
-                        //detecta el cambio de valor en el input
                         onChange={(e) => setNombre(e.target.value)}
                         value={nombre}
                     />
                 </div>
-
+                <br />
                 <div className="form-group">
-                    <label>Apellido</label>
-                    <input
-                        type="text"
-                        name="apellido"
-                        className="form-control"
-                        //detecta el cambio de valor en el input
-                        onChange={(e) => setApellido(e.target.value)}
-                        value={apellido}
-                    />
-                </div>
-
-                <div className="form-group">
-                    <label>Edad</label>
-                    <input
-                        type="text"
-                        name="edad"
-                        className="form-control"
-                        //detecta el cambio de valor en el input
-                        onChange={(e) => setEdad(e.target.value)}
-                        value={edad}
-                    />
-
-                </div>
-                <div className="form-group">
-                    <label>Email</label>
                     <input
                         type="email"
-                        name="email"
+                        placeholder="tuemail@ejemplo.cl"
                         className="form-control"
-                        //detecta el cambio de valor en el input
                         onChange={(e) => setEmail(e.target.value)}
                         value={email}
                     />
                 </div>
+                <br />
+                <div className="form-group">
+                    <input
+                        type="password"
+                        placeholder="Constraseña"
+                        className="form-control"
+                        onChange={(e) => setPass1(e.target.value)}
+                        value={pass1}
+                    />
+                </div>
+                <br />
+                <div className="form-group">
+                    <input
+                        type="password"
+                        placeholder="Confirma tu constraseña"
+                        className="form-control"
+                        //detecta el cambio de valor en el input
+                        onChange={(e) => setPass2(e.target.value)}
+                        value={pass2}
+                    />
+                </div>
+
 
                 <br />
 

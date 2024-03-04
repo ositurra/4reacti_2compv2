@@ -18,6 +18,7 @@ const Registro = () => {
                 </div>
                 <br />
                 <h5>O usa tu mail par registrarte</h5>
+                <br />
                 <div className="containerFormulario">
                     <Formulario/>
                 </div>

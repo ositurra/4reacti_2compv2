@@ -1,13 +1,13 @@
 import { useState } from "react"
 
-const Formulario = () => {
+const Formulario = ({ mostrarMensaje }) => {
     const [nombre, setNombre] = useState("");
     const [email, setEmail] = useState("");
     const [pass1, setPass1] = useState("");
     const [pass2, setPass2] = useState("");
     const [error, setError] = useState(false);
     const [erroremail, setErroremail] = useState(false);
-    const [errorpass,setErrorpass]=useState(false);
+    const [errorpass, setErrorpass] = useState(false);
 
 
     const validarDatos = (e) => {
@@ -16,29 +16,30 @@ const Formulario = () => {
 
         //Verifica que input no esten vacios
         if (nombre === '' || email === '' || pass1 === "" || pass2 === '') {
-            setError(true);
-            return;
-        } 
-        setError(false);
-
-        //Validacion de correo
-        const emailVerification=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if(!emailVerification.test(email)){
-            setErroremail(true);
+            mostrarMensaje('Completa todos los campos', 'danger');
             return;
         }
-        setErroremail(false);
 
-        //PODRIA IR ALGUN MENSAJE ACA**
+
+        //Validacion de correo
+        const emailVerification = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailVerification.test(email)) {
+            mostrarMensaje('Mail Invalido', 'danger');
+            return;
+        }
+
+
+
 
 
         //Validacion de Constraseña
-        if(pass1!==pass2){
-            setErrorpass(true);
+        if (pass1 !== pass2) {
+            mostrarMensaje('Contraseñas no coinciden', 'danger');
             return;
         }
-        setErrorpass(false)
 
+
+        mostrarMensaje('Registro exitoso', 'success');
 
 
         setNombre('');
@@ -96,9 +97,10 @@ const Formulario = () => {
 
                 <br />
 
-                <button type="submit" className="btn btn-primary">Registrarse</button>
-
-                {error ? <p className="error">Todos los campos son obligatorios</p> : null}
+                <div className="text-center">
+                    <button type="submit" className="btn btn-primary">Registrarse</button>
+                    {error ? <p className="error">Todos los campos son obligatorios</p> : null}
+                </div>
             </form>
 
         </>

@@ -1,11 +1,11 @@
-
+import React from 'react';
 import { Card } from 'react-bootstrap'
-import { Button } from 'react-bootstrap';
 import SocialButton from './SocialButton';
 import Formulario from './Formulario';
 
 
-const Registro = () => {
+
+const Registro = ({mostrarMensaje}) => {
     return (
         <Card className="rounded-4" >
             <Card.Body>
@@ -20,7 +20,7 @@ const Registro = () => {
                 <h5>O usa tu mail par registrarte</h5>
                 <br />
                 <div className="containerFormulario">
-                    <Formulario/>
+                    <Formulario mostrarMensaje={mostrarMensaje}/>
                 </div>
             </Card.Body>
         </Card>

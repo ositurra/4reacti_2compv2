@@ -4,7 +4,7 @@
 }
 
 .insideCard{
-    width: 400px;
+    width: 100%;
 
     display: flex;
     justify-content: space-around;
@@ -18,11 +18,28 @@
 
 }
 
-
+h1,h5{
+    text-align: center;
+}
 
 .rounded-4.card{
-    width: 450px;
-
+    width: 400px;
+    
     border: 1px solid ;
 }
 
+#root{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(70deg, #b0d9a5, #e4ea8c);
+    height: 100vh;
+
+}
+
+.containerFormulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

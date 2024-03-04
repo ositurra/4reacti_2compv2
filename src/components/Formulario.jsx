@@ -3,39 +3,50 @@ import { useState } from "react"
 const Formulario = () => {
     const [nombre, setNombre] = useState("");
     const [email, setEmail] = useState("");
-    const[pass1,setPass1]=useState("");
-    const[pass2,setPass2]=useState("");
-    const [error,setError]=useState(false);
-
-
-
-
-
+    const [pass1, setPass1] = useState("");
+    const [pass2, setPass2] = useState("");
+    const [error, setError] = useState(false);
+    const [erroremail, setErroremail] = useState(false);
+    const [errorpass,setErrorpass]=useState(false);
 
 
     const validarDatos = (e) => {
         //funcion antes de enviar el formulario
         e.preventDefault()
 
-        //validacion
+        //Verifica que input no esten vacios
         if (nombre === '' || email === '' || pass1 === "" || pass2 === '') {
             setError(true);
             return;
-        }
-
-
-
-
-
-
-
+        } 
         setError(false);
+
+        //Validacion de correo
+        const emailVerification=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if(!emailVerification.test(email)){
+            setErroremail(true);
+            return;
+        }
+        setErroremail(false);
+
+        //PODRIA IR ALGUN MENSAJE ACA**
+
+
+        //Validacion de Constraseña
+        if(pass1!==pass2){
+            setErrorpass(true);
+            return;
+        }
+        setErrorpass(false)
+
+
+
         setNombre('');
         setEmail('');
         setPass1('')
         setPass2('')
 
-    };
+    }
 
 
     return (
@@ -87,7 +98,7 @@ const Formulario = () => {
 
                 <button type="submit" className="btn btn-primary">Registrarse</button>
 
-                {error?<p className="error">Todos los campos son obligatorios</p>:null}
+                {error ? <p className="error">Todos los campos son obligatorios</p> : null}
             </form>
 
         </>

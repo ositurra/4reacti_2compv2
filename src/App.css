@@ -1,0 +1,28 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.insideCard{
+    width: 400px;
+
+    display: flex;
+    justify-content: space-around;
+    
+
+}
+
+.insideCard img{
+    height: 50px;
+    border-radius: 25px;
+
+}
+
+
+
+.rounded-4.card{
+    width: 450px;
+
+    border: 1px solid ;
+}
+
